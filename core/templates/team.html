@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!--=================================
+    Inner Header -->
+    <div class="inner-header bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-sm-6 text-center text-sm-left mb-2 mb-sm-0">
+            <h1 class="breadcrumb-title mb-0">Team</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb d-flex justify-content-center justify-content-sm-end ml-auto">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fas fa-home mr-1"></i>Home</a></li>
+              <li class="breadcrumb-item active"><span>Team</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--=================================
+  Inner Header -->
+
+  <!--=================================
+  Team -->
+  <section class="space-ptb">
+    <div class="container">
+      <div class="row">
+                            <div class="col-lg-3 col-sm-4 mb-4 pb-2">
+          <div class="team team-style-2">
+            <div class="team-img">
+              <img class="img-fluid" src="{% static 'uploads/team/1657359365.jpg'%}" alt="">
+            </div>
+            <div class="team-info">
+              <h6 class="team-title">Mr. kartikeyan Ramalingam</h6>
+              <span class="team-designation">DGFT EXPERT</span>
+            </div>
+          </div>
+        </div>
+                <div class="col-lg-3 col-sm-4 mb-4 pb-2">
+          <div class="team team-style-2">
+            <div class="team-img">
+              <img class="img-fluid" src="{% static 'uploads/team/1659336088.jpg'%}" alt="">
+            </div>
+            <div class="team-info">
+              <h6 class="team-title">Ms. Ria Jain</h6>
+              <span class="team-designation">Chartered Accountant</span>
+            </div>
+          </div>
+        </div>
+                <div class="col-lg-3 col-sm-4 mb-4 pb-2">
+          <div class="team team-style-2">
+            <div class="team-img">
+              <img class="img-fluid" src="{% static 'uploads/team/1657358928.jpg'%} " alt="">
+            </div>
+            <div class="team-info">
+              <h6 class="team-title">Ms. Natasha</h6>
+              <span class="team-designation">Company Secretary</span>
+            </div>
+          </div>
+        </div>
+                <div class="col-lg-3 col-sm-4 mb-4 pb-2">
+          <div class="team team-style-2">
+            <div class="team-img">
+              <img class="img-fluid" src="{% static 'uploads/team/1645858914.jpg'%}" alt="">
+            </div>
+            <div class="team-info">
+              <h6 class="team-title">Rajat Jain</h6>
+              <span class="team-designation">Founder, CEO</span>
+            </div>
+          </div>
+        </div>
+                      </div>
+    </div>
+  </section>
+  <!--=================================
+  Team -->
+
+{% endblock content %}
