@@ -1,0 +1,416 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+{% comment %} <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css"
+  integrity="sha512-pTaEn+6gF1IeWv3W1+7X7eM60TFu/agjgoHmYhAfLEU8Phuf6JKiiE8YmsNC0aCgQv4192s4Vai8YZ6VNM6vyQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/> {% endcomment %}
+
+
+{% endblock style %}
+
+{% block content %}
+
+
+<section class="subnav">
+    <div class="container">
+        <div class="qa-nav-sub">
+            <ul class="qa-nav-sub-list">
+                <li>
+                    <a href="{% url 'edit-profile' %}" class="nav_sub_link active">{{user.username}}</a>
+                </li>
+                <li>
+                    <a href="{% url 'profile' pk=user.id %}" class="nav_sub_link">My Account</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'user-question-list' %}" class="nav_sub_link">My Questions</a>
+                </li>
+
+                {% if user_status %}
+                <li>
+                    <a href="{% url 'user-question' %}" class="nav_sub_link qa-nav-sub-selected">Requests</a>
+                </li>
+                {% endif %}
+            </ul>
+            <div class="qa-nav-sub-clear">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================
+         START QUESTION AREA
+================================= -->
+<section class="question-area pt-40px pb-40px">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="d-block d-lg-none all_catogry_btn">All categories</button>
+            </div>
+
+            <div class="col-lg-2 bg_fff xs_hideSHow">
+                <div class="sidebar pb-45px  top-0 mt-2">
+                    <h3 class="fs-17 pb-3"> All categories <button type="button"
+                            class="d-block d-lg-none all_catogry_btn pull-right"><i class="la la-times"></i></button>
+                    </h3>
+                    <div class="divider mb-20px"><span></span></div>
+                    <ul class="generic-list-item generic-list-item-highlight fs-15">
+                        <li class="lh-26 active"><a href="http://www.expyog.com"><i
+                                    class="la la-home mr-1 text-black"></i> Home</a></li>
+                    </ul>
+                </div><!-- end sidebar -->
+            </div><!-- end col-lg-2 -->
+
+
+
+            <div class="col-lg-7">
+                <div class="q_type_main">
+                    <div class="filters d-flex align-items-center justify-content-between mb-4 heading_main_t">
+                        <h3 class="fs-20 fw-bold">User Profile</h3>
+                    </div>
+
+                    <div class="card pr-4 pt-3 pb-3 pl-4">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="hero-content ">
+                                    <div
+                                        class="media media-card align-items-center shadow-none p-0 mb-0 rounded-0 bg-transparent">
+                                        <div class="media-img media--img">
+                                            <img src="{% static 'images/avatar/04.jpg'%}" alt="avatar">
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>{{user.username}}</h5>
+                                            <small class="meta d-block lh-20 pb-2">
+                                                <span>New Delhi, Expert since 11 years ago</span>
+                                            </small>
+                                            <div class="stats fs-14 fw-medium d-flex align-items-center lh-18">
+                                                <span class="text-black pr-2" title="Reputation">224,110</span>
+                                                <span class="pr-2 d-inline-flex align-items-center" title="Gold"><span
+                                                        class="ball ml-1 gold"></span>16</span>
+                                                <span class="pr-2 d-inline-flex align-items-center" title="Silver"><span
+                                                        class="ball ml-1 silver"></span>93</span>
+                                                <span class="pr-2 d-inline-flex align-items-center" title="Bronze"><span
+                                                        class="ball ml-1"></span>136</span>
+                                            </div>
+                                        </div>
+                                    </div><!-- end media -->
+                                </div><!-- end hero-content -->
+                            </div><!-- end col-lg-8 -->
+                            <div class="col-lg-4">
+                                <div class="hero-btn-box text-right py-3">
+                                    <a href="{% url 'profile' pk=user.id %}"
+                                        class="btn theme-btn theme-btn-outline theme-btn-outline-gray"><i
+                                            class="la la-gear mr-1"></i> View Profile</a>
+                                </div>
+                            </div><!-- end col-lg-4 -->
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-12">
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="user-profile" role="tabpanel"
+                                        aria-labelledby="user-profile-tab">
+                                        <div class="user-panel-main-bar">
+                                            <div class="card">
+                                                <form method="POST" action=".">{% csrf_token %}
+                                                    <div class="card-body p-0">
+
+                                                        <table
+                                                            class="table generic-table overflow-hidden shadow-none bg-transparent rounded-0 mb-0 generic--table">
+                                                            <tbody>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        {{form.bio.name|capfirst}}:
+                                                                    </td>
+                                                                    <td class="qa-form-wide-data ">
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control form--control" placeholder="" id="{{form.bio.id_for_label}}"  name="{{ form.bio.html_name }}" value="{{user_profile.bio|default_if_none:""}}">
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        {{form.mobile.name|capfirst}}:
+                                                                    </td>
+                                                                    <td class="qa-form-wide-data ">
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control form--control" placeholder="" id="{{form.mobile.id_for_label}}"  name="{{ form.mobile.html_name }}" value="{{user_profile.mobile|default_if_none:""}}">
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        {{form.email.name|capfirst}}:
+                                                                    </td>
+                                                                    <td class="qa-form-wide-data ">
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control form--control" placeholder="" id="{{form.email.id_for_label}}"  name="{{ form.email.html_name }}" value="{{user_profile.email|default_if_none:""}}">
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        {{form.website.name|capfirst}}:
+                                                                    </td>
+                                                                    <td class="qa-form-wide-data ">
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control form--control" placeholder="" id="{{form.website.id_for_label}}"  name="{{ form.website.html_name }}" value="{{user_profile.website|default_if_none:""}}">
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        {{form.country.name|capfirst}}:
+                                                                    </td>
+                                                                    <td class="qa-form-wide-data ">
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control form--control" placeholder="" id="{{form.country.id_for_label}}" value="{{user_profile.country|default_if_none:" "}}">
+                                                                            
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="">
+                                                                    <td class="d-flex align-item-start">
+                                                                        {{form.speciality.name|capfirst}}:
+                                                                        
+                                                                    </td>
+                                                                    <td class="qa-form-wide-data ">
+                                                                        <div class="form-group">
+                                                                            <div class="form--group">
+                                                                                <select id="multiple-checkboxes" class="" multiple="multiple" name="speciality">
+                                                                                    <option value="Income Tax">Income Tax</option>
+                                                                                    <option value="Corporate Matters/LLP">Corporate Matters/LLP</option>
+                                                                                    <option value="Audit & Assurance and Accounting Standards">Audit & Assurance and Accounting Standards</option>
+                                                                                    <option value="Goods and Services Tax (GST)">Goods and Services Tax (GST)</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="custom-td">
+
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                
+                                                                
+                                                                
+
+                                                            </tbody>
+                                                        </table>
+                                                        
+                                                        <div class="row text-right pb-3 pr-4">
+                                                            <div class="col-12">
+
+                                                                <button class="btn btn-primary" type="submit">Submit Details</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+
+                                        </div><!-- end user-panel-main-bar -->
+                                    </div><!-- end tab-pane -->
+                                    <div class="tab-pane fade" id="user-activity" role="tabpanel"
+                                        aria-labelledby="user-activity-tab">
+                                        <div class="card mt-4">
+                                            <div class="cart-body ">
+                                                <div class="p-2">
+                                                    <h5><a name="activity"> <b>Activity by</b> <small> CA RAJAT
+                                                                JAIN</small></a></h5>
+                                                </div>
+
+                                                <div class="divider"><span></span></div>
+                                                <table
+                                                    class="table generic-table overflow-hidden shadow-none bg-transparent rounded-0 mb-0 generic--table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Answers:
+                                                            </td>
+                                                            <td class="qa-form-wide-data ">
+                                                                <span class="qa-form-wide-static"><span
+                                                                        class="qa-uf-user-a-posts">6,996</span> (<span
+                                                                        class="qa-uf-user-a-selecteds">266</span> chosen
+                                                                    as best)</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Voted on:
+                                                            </td>
+                                                            <td class="qa-form-wide-data ">
+                                                                <span class="qa-form-wide-static"><span
+                                                                        class="qa-uf-user-a-votes">16</span>
+                                                                    answers</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Gave out:
+                                                            </td>
+                                                            <td class="qa-form-wide-data ">
+                                                                <span class="qa-form-wide-static"><span
+                                                                        class="qa-uf-user-upvotes">16</span> up
+                                                                    votes</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Received:
+                                                            </td>
+                                                            <td class="qa-form-wide-data ">
+                                                                <span class="qa-form-wide-static"><span
+                                                                        class="qa-uf-user-upvoteds">553</span> up
+                                                                    votes</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div><!-- end tab-pane -->
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card card-item">
+                        <div class="card-body">
+                            <h3 class="fs-17 pb-3">Concept by</h3>
+                            <div class="divider"><span></span></div>
+                            <div class="consepted_by_main">
+                                <div class="image">
+                                    <img src="{% static 'images/rajat.jpg'%}" class="img-fluid" alt="">
+                                </div>
+                                <h6><b> CA Rajat Jain</b></h6>
+                            </div>
+                        </div>
+                    </div><!-- end card -->
+
+                    <div class="card card-item bg_writtenop p-0">
+                        <div class="card-body p-0">
+                            <a href="http://www.expyog.com/create/opinion">
+                                <h3 class="fs-17 pb-0"><i class="las la-user-edit"></i> Have a written opinion</h3>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card card-item">
+                        <div class="card-body">
+                            <h3 class="fs-17 pb-3">Navigation</h3>
+                            <div class="divider"><span></span></div>
+                            <div class="sidebar-questions pt-3">
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="{% url 'create-question' %}"><i
+                                                    class="lar la-question-circle"></i> Create Question</a></h5>
+                                    </div>
+                                </div><!-- end media -->
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="{% url 'index' %}"><i
+                                                    class="lar la-list-alt"></i> Question List</a></h5>
+                                    </div>
+                                </div><!-- end media -->
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="{% url 'edit-profile' %}"><i
+                                                    class="las la-user-edit"></i> Edit Profile</a></h5>
+                                    </div>
+                                </div><!-- end media -->
+                            </div><!-- end sidebar-questions -->
+                        </div>
+                    </div>
+
+                </div><!-- end sidebar -->
+            </div><!-- end col-lg-3 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end question-area -->
+<!-- ================================
+         END QUESTION AREA
+================================= -->
+
+<!-- ================================
+         START CTA AREA
+================================= -->
+<section class="get-started-area pt-80px pb-50px pattern-bg bg-gray">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">Filling Suvidha Q&A communities are different. <br> Here's how</h2>
+        </div>
+        <div class="row pt-50px">
+            <div class="col-lg-4 responsive-column-half">
+                <div class="card card-item hover-y text-center">
+                    <div class="card-body">
+                        <img src="{% static 'images/bubble.png'%}" alt="bubble">
+                        <h5 class="card-title pt-4 pb-2">Expert communities.</h5>
+                        <p class="card-text">This is just a simple text made for this unique and awesome template, you
+                            can easily edit it as you want.</p>
+                    </div><!-- end card-body -->
+                </div><!-- end card -->
+            </div><!-- end col-lg-4 -->
+            <div class="col-lg-4 responsive-column-half">
+                <div class="card card-item hover-y text-center">
+                    <div class="card-body">
+                        <img src="{% static 'images/vote.png'%}" alt="vote">
+                        <h5 class="card-title pt-4 pb-2">The right answer. Right on top.</h5>
+                        <p class="card-text">This is just a simple text made for this unique and awesome template, you
+                            can easily edit it as you want.</p>
+                    </div><!-- end card-body -->
+                </div><!-- end card -->
+            </div><!-- end col-lg-4 -->
+            <div class="col-lg-4 responsive-column-half">
+                <div class="card card-item hover-y text-center">
+                    <div class="card-body">
+                        <img src="{% static 'images/check.png'%}" alt="check">
+                        <h5 class="card-title pt-4 pb-2">Share knowledge. Earn trust.</h5>
+                        <p class="card-text">This is just a simple text made for this unique and awesome template, you
+                            can easily edit it as you want.</p>
+                    </div><!-- end card-body -->
+                </div><!-- end card -->
+            </div><!-- end col-lg-4 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+<!-- ================================
+         END CTA AREA
+================================= -->
+
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'multiselect/js/jquery.min.js'%}"></script>
+<script src="{% static 'multiselect/js/popper.js'%}"></script>
+<script src="{% static 'multiselect/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'multiselect/js/bootstrap-multiselect.js'%}"></script>
+<script src="{% static 'multiselect/js/main.js'%}"></script>
+
+{% comment %} <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
+  integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script> {% endcomment %}
+
+{% endblock script %}

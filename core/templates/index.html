@@ -2,8 +2,7 @@
 {% load static %}
 
 {% block content %}
-
-    <!--======================================
+<!--======================================
         START HERO AREA
 ======================================-->
 <section class="hero-area pt-20px pb-20px hero-bg-1">
@@ -18,27 +17,27 @@
         <div class="row align-items-center">
             <div class="col-lg-9">
                 <div class="hero-content">
-                    <h2 class="section-title pb-2 text-white">A Place to Share Knowledge</h2>
+                    <h2 class="section-title pb-1 text-white">A Place to Share Knowledge</h2>
                     <p class="section-desc text-white">for and by Professionals in Law, Tax, Accounts, Finance</p>
-                    <!-- <div class="hero-btn-box py-4">
-                        <a href="" class="btn theme-btn theme-btn-white">Ask a Question <i class="la la-arrow-right icon ml-1"></i></a>
-                    </div> -->
+
                 </div><!-- end hero-content -->
             </div><!-- end col-lg-9 -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 d-none d-lg-block">
                 <div class="hero-list hero-list-bg">
                     <div class="d-flex align-items-center pb-30px">
-                        <img src="{% static 'frontend/qna/images/anonymousHeroQuestions.svg'%}" alt="question icon" class="mr-3">
+                        <img src="{% static 'images/anonymousHeroQuestions.svg'%}" alt="question icon" class="mr-3">
                         <p class="fs-15 text-white lh-20">Anybody can ask a question</p>
                     </div>
-                    <div class="d-flex align-items-center pb-20px">
-                        <img src="{% static 'frontend/qna/images/anonymousHeroAnswers.svg'%}" alt="question answer icon" class="mr-3">
+                    <div class="d-flex align-items-center">
+                        <img src="{% static 'images/anonymousHeroAnswers.svg'%}" alt="question answer icon"
+                            class="mr-3">
                         <p class="fs-15 text-white lh-20">Anybody can answer</p>
                     </div>
-                                    </div>
+                </div>
             </div>
         </div><!-- end row -->
-    </div><!-- end container -->
+    </div>
+    <!-- end container -->
 </section>
 <!--======================================
         END HERO AREA
@@ -50,499 +49,657 @@
 <section class="question-area pt-40px pb-40px">
     <div class="container">
         <div class="row">
-                            
             <div class="col-12">
                 <button type="button" class="d-block d-lg-none all_catogry_btn">All categories</button>
             </div>
-           <div class="col-lg-2 bg_fff xs_hideSHow">
-              <div class="sidebar pb-45px  top-0 mt-2">
-               <h3 class="fs-17 pb-3"> All categories   <button type="button" class="d-block d-lg-none all_catogry_btn pull-right"><i class="la la-times"></i></button></h3>
-               <div class="divider mb-20px"><span></span></div>
-                  <ul class="generic-list-item generic-list-item-highlight fs-15">
-                      <li class="lh-26 active"><a href="index.html"><i class="la la-home mr-1 text-black"></i> Home</a></li>
-                      <li class="lh-26"><a href="#"><i class="la la-flask mr-1 text-black"></i> Income Tax</a></li><li class="lh-26"><a href="#"><i class="la la-flask mr-1 text-black"></i> Corporate Matters/LLP</a></li><li class="lh-26"><a href="#"><i class="la la-flask mr-1 text-black"></i> Audit & Assurance and Accounting Standards</a></li><li class="lh-26"><a href="#"><i class="la la-flask mr-1 text-black"></i> Goods and Services Tax (GST)</a></li><li class="lh-26"><a href="#"><i class="la la-flask mr-1 text-black"></i> Bank / Insurance / Stock / Debtors Audit</a></li><li class="lh-26"><a href="#"><i class="la la-flask mr-1 text-black"></i> Code of Ethics</a></li><li class="lh-26"><a href="#"><i class="la la-flask mr-1 text-black"></i> Internal Audit</a></li><li class="lh-26"><a href="#"><i class="la la-flask mr-1 text-black"></i> Transfer Pricing</a></li><li class="lh-26"><a href="#"><i class="la la-flask mr-1 text-black"></i> Customs & Excise</a></li><li class="lh-26"><a href="#"><i class="la la-flask mr-1 text-black"></i> Investment & Finance</a></li>  
-                  </ul>
-              </div><!-- end sidebar -->
-           </div><!-- end col-lg-2 -->
-            <div class="col-lg-7">
-                <div class="question-tabs mb-50px">  
-                    <ul class="nav nav-tabs generic-tabs justify-content-center" id="myTab" role="tablist">
-                        <li class="nav-item"><div class="anim-bar"></div></li>
-                        <li class="nav-item">
-                            <a class="nav-link active" id="questions-tab" data-toggle="tab" href="#questions" role="tab" aria-controls="questions" aria-selected="true">Recent Questions</a>
+
+            <div class="col-lg-2 bg_fff xs_hideSHow">
+                <div class="sidebar pb-45px  top-0 mt-2">
+                    <h3 class="fs-17 pb-3"> All categories <button type="button"
+                            class="d-block d-lg-none all_catogry_btn pull-right"><i class="la la-times"></i></button>
+                    </h3>
+                    <div class="divider mb-20px"><span></span></div>
+                    <ul class="generic-list-item generic-list-item-highlight fs-15">
+                        {% for key, value in categories.items %}
+                        <li class="lh-26 {{value.1}}"><a href="?category={{key}}&page=1"><i
+                                    class="la la-home mr-1 text-black"></i> {{value.0}}</a></li>
+                        {% comment %} <li class="lh-26"><a href="?category=Income Tax"><i class="la la-flask mr-1"></i> Income Tax</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" id="Articles-tab" data-toggle="tab" href="#Articles" role="tab" aria-controls="Articles" aria-selected="false"> Articles  </a>
+                        <li class="lh-26"><a href="#"><i class="la la-flask mr-1"></i> Corporate Matters/LLP</a></li>
+                        <li class="lh-26"><a href="#"><i class="la la-flask mr-1"></i> Audit &amp; Assurance and
+                                Accounting Standards</a></li>
+                        <li class="lh-26"><a href="#"><i class="la la-flask mr-1"></i> Goods and Services Tax (GST)</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="Presentations-tab" data-toggle="tab" href="#Presentations" role="tab" aria-controls="Presentations" aria-selected="false">Presentations</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" id="Videos-tab" data-toggle="tab" href="#Videos" role="tab" aria-controls="Videos" aria-selected="false">Videos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="Notifications-tab" data-toggle="tab" href="#Notifications" role="tab" aria-controls="Notifications" aria-selected="false">  Notifications</a>
-                        </li> -->
+                        <li class="lh-26"><a href="#"><i class="la la-flask mr-1"></i> Bank / Insurance / Stock /
+                                Debtors Audit</a></li>
+                        <li class="lh-26"><a href="#"><i class="la la-flask mr-1"></i> Code of Ethics</a></li>
+                        <li class="lh-26"><a href="#"><i class="la la-flask mr-1"></i> Internal Audit</a></li>
+                        <li class="lh-26"><a href="#"><i class="la la-flask mr-1"></i> Transfer Pricing</a></li>
+                        <li class="lh-26"><a href="#"><i class="la la-flask mr-1"></i> Customs &amp; Excise</a></li>
+                        <li class="lh-26"><a href="#"><i class="la la-flask mr-1"></i> Investment &amp; Finance</a></li> {% endcomment %}
+                        {% endfor%}
                     </ul>
+                </div><!-- end sidebar -->
+            </div><!-- end col-lg-2 -->
+            <div class="col-lg-7">
+                <div class="question-tabs mb-50px">
+                    
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="questions" role="tabpanel" aria-labelledby="questions-tab">
+                        <div class="tab-pane fade show active" id="questions" role="tabpanel"
+                            aria-labelledby="questions-tab">
                             <div class="filters d-flex align-items-center justify-content-between mb-4 heading_main_t">
-                                <h3 class="fs-20 fw-bold">All Questions</h3> 
+                                <h3 class="fs-20 fw-bold">All Questions</h3>
                             </div><!-- end filters -->
                             <div class="question-main-bar">
                                 <div class="questions-snippet">
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
+                                    {% for question in questions %}
+                                    <div class="media media-card media--card align-items-center">
+                                        <div class="votes">
+                                            <div class="vote-block d-flex align-items-center justify-content-between"
+                                                title="Views">
                                                 <span class="vote-counts">10</span>
                                                 <span class="fa fa-eye"></span>
                                             </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
+                                            <div class="answer-block d-flex align-items-center justify-content-between"
+                                                title="Answers">
                                                 <span class="vote-counts">3</span>
                                                 <span class="answer-icon"> </span>
                                             </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. what is equity funds
+                                        </div>
+                                        <div class="media-body">
+                                            <h5><a href="{% url 'detail-question' pk=question.query_id %}">{{question.title}}
                                                 </a></h5>
                                             <small class="meta">
-                                                <span class="pr-1">29-10-2022</span>
-                                                <a href="#" class="author">Durgesh kumar </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
+                                                <span class="pr-1">{{question.date_created}}</span>
+                                                <a href="user-profile.html" class="author">{{question.user.username}}
+                                                </a>
+                                                <span> CA, </span>
+                                                <span> Lucknow </span>
                                             </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Investment &amp; Finance</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
+                                            <div class="tags">
+                                                <a href="#" class="tag-link">{{question.category}}</a>
                                             </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. what is gst
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">29-10-2022</span>
-                                                <a href="#" class="author">Durgesh kumar </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Goods and Services Tax (GST)</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. fefe
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">28-10-2022</span>
-                                                <a href="#" class="author">Ria </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Transfer Pricing</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. GST Registration
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">28-10-2022</span>
-                                                <a href="#" class="author">Ria </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Goods and Services Tax (GST)</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. test query
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">10-10-2022</span>
-                                                <a href="#" class="author">shailesh </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Goods and Services Tax (GST)</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. Please tell me more about ITR?
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">02-08-2022</span>
-                                                <a href="#" class="author">apoorvsingh30 </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Income Tax</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. Tax enquiries
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">14-07-2022</span>
-                                                <a href="#" class="author">abcx@gmail.com </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Customs &amp; Excise</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. What is GST Refund?
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">06-06-2022</span>
-                                                <a href="#" class="author">Tabrez </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Income Tax</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. Tax enquiries
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">30-05-2022</span>
-                                                <a href="#" class="author">raja </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Income Tax</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. tax return date 2022
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">29-05-2022</span>
-                                                <a href="#" class="author">raja </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Income Tax</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. tax return date
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">29-05-2022</span>
-                                                <a href="#" class="author">raja </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Income Tax</a>
-                                                                                                <a href="#" class="tag-link">Bank / Insurance / Stock / Debtors Audit</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. Test question
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">29-05-2022</span>
-                                                <a href="#" class="author">shamsher </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Code of Ethics</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. test question
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">29-05-2022</span>
-                                                <a href="#" class="author">Pravir </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Goods and Services Tax (GST)</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. Sir, Is it required to file Form 61A (SFT -08) in case of newly incorporated company?
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">29-05-2022</span>
-                                                <a href="#" class="author">Pravir </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Code of Ethics</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                        <div class="media media-card media--card align-items-center"> 
-                                        <!-- <div class="votes">
-                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Views">
-                                                <span class="vote-counts">10</span>
-                                                <span class="fa fa-eye"></span>
-                                            </div>
-                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">3</span>
-                                                <span class="answer-icon"> </span>
-                                            </div>
-                                        </div> -->
-                                        <div class="media-body"> 
-                                            <h5><a href="#"> Q. what is the tax filling...
-                                                </a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">29-05-2022</span>
-                                                <a href="#" class="author">Pravir </a>
-                                                <!-- <span> CA, </span>
-                                                 <span> Lucknow </span> -->
-                                            </small>
-                                                                                                                                    <div class="tags">
-                                                                                                <a href="#" class="tag-link">Audit &amp; Assurance and Accounting Standards</a>
-                                                                                            </div>
-                                                                                    </div>
-                                    </div><!-- end media --> 
-                                                                    </div><!-- end questions-snippet -->
+                                        </div>
+                                    </div><!-- end media -->
+                                    {% endfor %}
+
+
+                                </div><!-- end questions-snippet -->
 
                                 <div class="pager d-flex flex-wrap align-items-center justify-content-between pt-30px">
-                                <nav>
-        <ul class="pagination">
-            
-                            <li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
-                    <span class="page-link" aria-hidden="true">&lsaquo;</span>
-                </li>
-            
-            
-                            
-                
-                
-                                                                                        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
-                                                                                                <li class="page-item"><a class="page-link" href="index4658.html?page=2">2</a></li>
-                                                                        
-            
-                            <li class="page-item">
-                    <a class="page-link" href="index4658.html?page=2" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
-                </li>
-                    </ul>
-    </nav>
+                                    <div>
+                                        <nav aria-label="Page navigation example">
+                                            <ul class="pagination generic-pagination pr-1">
+                                                {% comment %} <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Previous">
+                                                        <span aria-hidden="true"><i class="la la-arrow-left"></i></span>
+                                                        <span class="sr-only">Previous</span>
+                                                    </a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Next">
+                                                        <span aria-hidden="true"><i
+                                                                class="la la-arrow-right"></i></span>
+                                                        <span class="sr-only">Next</span>
+                                                    </a>
+                                                </li> {% endcomment %}
+                                                {% if questions.has_previous %}
 
-                                   
+                                                {% if questions.previous_page_number != 1%}
+                                                <li class="page-item">
+                                                    <a  class="page-link" href="?category={{current_category}}&page=1">1</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?category={{current_category}}&page={{ questions.previous_page_number }}">{{ questions.previous_page_number }}</a>
+                                                </li>
+                                                {% else %}
+                                                <li class="page-item">
+                                                    <a  class="page-link" href="?category={{current_category}}&page=1">1</a>
+                                                </li>
+                                                {% endif %}
+                                                {% endif %}
+                                                <li class="page-item active">
+                                                    <a class="page-link" href="#">{{ questions.number  }}</a>
+                                                    
+                                                </li>
+
+                                                {% if questions.has_next %}
+
+                                                {% if questions.next_page_number != questions.paginator.num_pages %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?category={{current_category}}&page={{ questions.next_page_number }}">{{ questions.next_page_number }}</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?category={{current_category}}&page={{ questions.paginator.num_pages }}">{{ questions.paginator.num_pages }}</a>
+                                                </li>
+                                                {% else %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?category={{current_category}}&page={{ questions.next_page_number }}">{{ questions.next_page_number }}</a>
+                                                </li>
+                                                {% endif %}
+                                                
+                                                {% endif %}
+                                            </ul>
+                                        </nav>
+                                        <p class="fs-13 pt-3">Showing 1-4 results of 50,577 questions</p>
+                                    </div>
+
                                 </div>
                             </div><!-- end question-main-bar -->
                         </div><!-- end tab-pane -->
+                        <div class="tab-pane fade" id="Articles" role="tabpanel" aria-labelledby="Articles-tab">
+                            <div class="filters mb-2 heading_main_t">
+                                <div class="d-flex flex-wrap align-items-center justify-content-between ">
+                                    <h2 class="fs-20 fw-bold">Articles</h2>
+                                </div>
+                            </div><!-- end filters -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <small>(Kindly select categories from left panel to get category specific
+                                        result)</small>
+                                </div>
+                            </div>
+                            <div class="questions-snippet">
 
-                    </div>
-                </div>
-            </div><!-- end col-lg-7 -->            
+                                <div class="media media-card media--card align-items-center">
+                                    <div class="votes">
+                                        <div class="vote-block d-flex align-items-center justify-content-between"
+                                            title="Views">
+                                            <span class="vote-counts">10</span>
+                                            <span class="fa fa-eye"></span>
+                                        </div>
+                                        <div class="answer-block d-flex align-items-center justify-content-between"
+                                            title="Answers">
+                                            <span class="vote-counts">&nbsp;</span>
+                                            <span class="fa fa-file-o"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="question-details.html">Company Auditor Series 5 - Removal &
+                                                Resignation of Auditors by CA.
+                                                Pramod Jain</a></h5>
+                                        <small> <a href="#">View Article</a></small>
+
+                                        <div class="deliveredat_div_cls">
+                                            <small><span class="deliveredat_label_cls">Delivered At </span><span
+                                                    class="deliveredat_data_cls">www.expertspanel.in</span></small>
+                                        </div>
+                                        <div class="dateofpublishing_div_cls">
+                                            <small> <span class="dateofpublishing_label_cls">Date of publishing
+                                                </span><span class="dateofpublishing_data_cls">September 16,
+                                                    2021</span></small>
+                                        </div>
+                                        <small class="meta">
+                                            <span class="pr-1">Author </span>
+                                            <a href="user-profile.html" class="author">CA PRAMOD JAIN, </a>
+                                            <span> CA, CS, CMA, LL.B, </span>
+                                            <span> Delhi</span>
+                                        </small>
+
+                                    </div>
+                                </div><!-- end media -->
+
+                                <div class="media media-card media--card align-items-center">
+                                    <div class="votes">
+                                        <div class="vote-block d-flex align-items-center justify-content-between"
+                                            title="Views">
+                                            <span class="vote-counts">10</span>
+                                            <span class="fa fa-eye"></span>
+                                        </div>
+                                        <div class="answer-block d-flex align-items-center justify-content-between"
+                                            title="Answers">
+                                            <span class="vote-counts">&nbsp;</span>
+                                            <span class="fa fa-file-o"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="question-details.html">Company Auditor Series 5 - Removal &
+                                                Resignation of Auditors by CA.
+                                                Pramod Jain</a></h5>
+                                        <small> <a href="#">View Article</a></small>
+
+                                        <div class="deliveredat_div_cls">
+                                            <small><span class="deliveredat_label_cls">Delivered At </span><span
+                                                    class="deliveredat_data_cls">www.expertspanel.in</span></small>
+                                        </div>
+                                        <div class="dateofpublishing_div_cls">
+                                            <small> <span class="dateofpublishing_label_cls">Date of publishing
+                                                </span><span class="dateofpublishing_data_cls">September 16,
+                                                    2021</span></small>
+                                        </div>
+                                        <small class="meta">
+                                            <span class="pr-1">Author </span>
+                                            <a href="user-profile.html" class="author">CA PRAMOD JAIN, </a>
+                                            <span> CA, CS, CMA, LL.B, </span>
+                                            <span> Delhi</span>
+                                        </small>
+
+                                    </div>
+                                </div><!-- end media -->
+
+                                <div class="media media-card media--card align-items-center">
+                                    <div class="votes">
+                                        <div class="vote-block d-flex align-items-center justify-content-between"
+                                            title="Views">
+                                            <span class="vote-counts">10</span>
+                                            <span class="fa fa-eye"></span>
+                                        </div>
+                                        <div class="answer-block d-flex align-items-center justify-content-between"
+                                            title="Answers">
+                                            <span class="vote-counts">&nbsp;</span>
+                                            <span class="fa fa-file-o"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="question-details.html">Company Auditor Series 5 - Removal &
+                                                Resignation of Auditors by CA.
+                                                Pramod Jain</a></h5>
+                                        <small> <a href="#">View Article</a></small>
+
+                                        <div class="deliveredat_div_cls">
+                                            <small><span class="deliveredat_label_cls">Delivered At </span><span
+                                                    class="deliveredat_data_cls">www.expertspanel.in</span></small>
+                                        </div>
+                                        <div class="dateofpublishing_div_cls">
+                                            <small> <span class="dateofpublishing_label_cls">Date of publishing
+                                                </span><span class="dateofpublishing_data_cls">September 16,
+                                                    2021</span></small>
+                                        </div>
+                                        <small class="meta">
+                                            <span class="pr-1">Author </span>
+                                            <a href="user-profile.html" class="author">CA PRAMOD JAIN, </a>
+                                            <span> CA, CS, CMA, LL.B, </span>
+                                            <span> Delhi</span>
+                                        </small>
+
+                                    </div>
+                                </div><!-- end media -->
+                            </div>
+                        </div><!-- end tab-pane -->
+
+
+                        <div class="tab-pane fade" id="Presentations" role="tabpanel"
+                            aria-labelledby="Presentations-tab">
+                            <div class="filters  mb-2 heading_main_t">
+                                <div class="d-flex flex-wrap align-items-center justify-content-between ">
+                                    <h2 class="fs-20 fw-bold"> Presentations </h2>
+                                </div>
+
+                            </div><!-- end filters -->
+                            <div class="row mb-3">
+
+                                <div class="col-12">
+                                    <small>(Kindly select categories from left panel to get category specific
+                                        result)</small>
+                                </div>
+                            </div>
+
+                            <div class="media media-card media--card align-items-center">
+                                <div class="votes">
+                                    <div class="vote-block d-flex align-items-center justify-content-between"
+                                        title="Views">
+                                        <span class="vote-counts">10</span>
+                                        <span class="fa fa-eye"></span>
+                                    </div>
+                                    <div class="answer-block d-flex align-items-center justify-content-between"
+                                        title="Answers">
+                                        <span class="vote-counts">&nbsp;</span>
+                                        <span class="fa fa-file-o"> </span>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <small class="qa_top">
+                                        <span class="qa-a-item-what">Presentation added</span> in
+                                        <span class="qa-a-item-where"> <span class="qa-a-item-where-data"> <a
+                                                    href="#">Goods and Services Tax (GST)</a> </span> </span>
+                                    </small>
+                                    <h5><a href="question-details.html">Critical Issues under GST Audit by
+                                            Department</a></h5>
+                                    <small> <a href="#">View presentation</a></small>
+
+                                    <div class="deliveredat_div_cls">
+                                        <small><span class="deliveredat_label_cls">Delivered At </span><span
+                                                class="deliveredat_data_cls">Self</span></small>
+                                    </div>
+                                    <div class="dateofpublishing_div_cls">
+                                        <small> <span class="dateofpublishing_label_cls">Date of publishing </span><span
+                                                class="dateofpublishing_data_cls">September 16, 2021</span></small>
+                                    </div>
+                                    <small class="meta">
+                                        <span class="pr-1">Author </span>
+                                        <a href="user-profile.html" class="author">CA PRAMOD JAIN, </a>
+                                        <span> CA, CS, CMA, LL.B, </span>
+                                        <span> Delhi</span>
+                                    </small>
+
+                                </div>
+                            </div><!-- end media -->
+
+                            <div class="media media-card media--card align-items-center">
+                                <div class="votes">
+                                    <div class="vote-block d-flex align-items-center justify-content-between"
+                                        title="Views">
+                                        <span class="vote-counts">10</span>
+                                        <span class="fa fa-eye"></span>
+                                    </div>
+                                    <div class="answer-block d-flex align-items-center justify-content-between"
+                                        title="Answers">
+                                        <span class="vote-counts">&nbsp;</span>
+                                        <span class="fa fa-file-o"> </span>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <small class="qa_top">
+                                        <span class="qa-a-item-what">Presentation added</span> in
+                                        <span class="qa-a-item-where"> <span class="qa-a-item-where-data"> <a
+                                                    href="#">Goods and Services Tax (GST)</a> </span> </span>
+                                    </small>
+                                    <h5><a href="question-details.html">Critical Issues under GST Audit by
+                                            Department</a></h5>
+                                    <small> <a href="#">View presentation</a></small>
+
+                                    <div class="deliveredat_div_cls">
+                                        <small><span class="deliveredat_label_cls">Delivered At </span><span
+                                                class="deliveredat_data_cls">Self</span></small>
+                                    </div>
+                                    <div class="dateofpublishing_div_cls">
+                                        <small> <span class="dateofpublishing_label_cls">Date of publishing </span><span
+                                                class="dateofpublishing_data_cls">September 16, 2021</span></small>
+                                    </div>
+                                    <small class="meta">
+                                        <span class="pr-1">Author </span>
+                                        <a href="user-profile.html" class="author">CA PRAMOD JAIN, </a>
+                                        <span> CA, CS, CMA, LL.B, </span>
+                                        <span> Delhi</span>
+                                    </small>
+
+                                </div>
+                            </div><!-- end media -->
+
+                            <div class="media media-card media--card align-items-center">
+                                <div class="votes">
+                                    <div class="vote-block d-flex align-items-center justify-content-between"
+                                        title="Views">
+                                        <span class="vote-counts">10</span>
+                                        <span class="fa fa-eye"></span>
+                                    </div>
+                                    <div class="answer-block d-flex align-items-center justify-content-between"
+                                        title="Answers">
+                                        <span class="vote-counts">&nbsp;</span>
+                                        <span class="fa fa-file-o"> </span>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <small class="qa_top">
+                                        <span class="qa-a-item-what">Presentation added</span> in
+                                        <span class="qa-a-item-where"> <span class="qa-a-item-where-data"> <a
+                                                    href="#">Goods and Services Tax (GST)</a> </span> </span>
+                                    </small>
+                                    <h5><a href="question-details.html">Critical Issues under GST Audit by
+                                            Department</a></h5>
+                                    <small> <a href="#">View presentation</a></small>
+
+                                    <div class="deliveredat_div_cls">
+                                        <small><span class="deliveredat_label_cls">Delivered At </span><span
+                                                class="deliveredat_data_cls">Self</span></small>
+                                    </div>
+                                    <div class="dateofpublishing_div_cls">
+                                        <small> <span class="dateofpublishing_label_cls">Date of publishing </span><span
+                                                class="dateofpublishing_data_cls">September 16, 2021</span></small>
+                                    </div>
+                                    <small class="meta">
+                                        <span class="pr-1">Author </span>
+                                        <a href="user-profile.html" class="author">CA PRAMOD JAIN, </a>
+                                        <span> CA, CS, CMA, LL.B, </span>
+                                        <span> Delhi</span>
+                                    </small>
+
+                                </div>
+                            </div><!-- end media -->
+
+                        </div><!-- end tab-pane -->
+
+
+
+                        <div class="tab-pane fade" id="Videos" role="tabpanel" aria-labelledby="Videos-tab">
+                            <div class="filters  mb-2 heading_main_t">
+                                <div class="d-flex flex-wrap align-items-center justify-content-between ">
+                                    <h2 class="fs-20 fw-bold"> Videos </h2>
+                                </div>
+
+                            </div><!-- end filters -->
+                            <div class="row mb-3">
+
+                                <div class="col-12">
+                                    <small>(Kindly select categories from left panel to get category specific
+                                        result)</small>
+                                </div>
+                            </div>
+
+                            <div class="media media-card media--card align-items-center">
+                                <div class="media-body">
+                                    <small class="qa_top">
+                                        <span class="qa-a-item-what">Video added in</span>
+                                        <span class="qa-a-item-where-data"> <a href="#"> Audit & Assurance and
+                                                Accounting Standards , </a> </span>
+                                        <span class="qa-a-item-where-data"> <a href="#"> Corporate Matters/LLP </a>
+                                        </span>
+                                    </small>
+
+                                    <h5><a href="question-details.html">Critical Issues under GST Audit by
+                                            Department</a></h5>
+
+                                    <div class="row mt-3">
+                                        <div class="col-lg-4 col-md-4">
+                                            <iframe width="100%" height="100"
+                                                src="https://www.youtube.com/embed/yi2SUnyZbWI"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8">
+                                            <div class="deliveredat_div_cls">
+                                                <small><span class="deliveredat_label_cls">Delivered At </span><span
+                                                        class="deliveredat_data_cls">YouTube</span></small>
+                                            </div>
+                                            <div class="dateofpublishing_div_cls">
+                                                <small> <span class="dateofpublishing_label_cls">Date of publishing
+                                                    </span><span class="dateofpublishing_data_cls">March 27,
+                                                        2021</span></small>
+                                            </div>
+                                            <small class="meta">
+                                                <span class="pr-1">Author </span>
+                                                <a href="user-profile.html" class="author">CA PRAMOD JAIN, </a>
+                                                <span> CA, CS, CMA, LL.B, </span>
+                                                <span> Delhi</span>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end media -->
+
+                            <div class="media media-card media--card align-items-center">
+                                <div class="media-body">
+                                    <small class="qa_top">
+                                        <span class="qa-a-item-what">Video added in</span>
+                                        <span class="qa-a-item-where-data"> <a href="#"> Audit & Assurance and
+                                                Accounting Standards , </a> </span>
+                                        <span class="qa-a-item-where-data"> <a href="#"> Corporate Matters/LLP </a>
+                                        </span>
+                                    </small>
+
+                                    <h5><a href="question-details.html">Critical Issues under GST Audit by
+                                            Department</a></h5>
+
+                                    <div class="row mt-3">
+                                        <div class="col-lg-4 col-md-4">
+                                            <iframe width="100%" height="100"
+                                                src="https://www.youtube.com/embed/yi2SUnyZbWI"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8">
+                                            <div class="deliveredat_div_cls">
+                                                <small><span class="deliveredat_label_cls">Delivered At </span><span
+                                                        class="deliveredat_data_cls">YouTube</span></small>
+                                            </div>
+                                            <div class="dateofpublishing_div_cls">
+                                                <small> <span class="dateofpublishing_label_cls">Date of publishing
+                                                    </span><span class="dateofpublishing_data_cls">March 27,
+                                                        2021</span></small>
+                                            </div>
+                                            <small class="meta">
+                                                <span class="pr-1">Author </span>
+                                                <a href="user-profile.html" class="author">CA PRAMOD JAIN, </a>
+                                                <span> CA, CS, CMA, LL.B, </span>
+                                                <span> Delhi</span>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end media -->
+
+                            <div class="media media-card media--card align-items-center">
+                                <div class="media-body">
+                                    <small class="qa_top">
+                                        <span class="qa-a-item-what">Video added in</span>
+                                        <span class="qa-a-item-where-data"> <a href="#"> Audit & Assurance and
+                                                Accounting Standards , </a> </span>
+                                        <span class="qa-a-item-where-data"> <a href="#"> Corporate Matters/LLP </a>
+                                        </span>
+                                    </small>
+
+                                    <h5><a href="question-details.html">Critical Issues under GST Audit by
+                                            Department</a></h5>
+
+                                    <div class="row mt-3">
+                                        <div class="col-lg-4 col-md-4">
+                                            <iframe width="100%" height="100"
+                                                src="https://www.youtube.com/embed/yi2SUnyZbWI"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8">
+                                            <div class="deliveredat_div_cls">
+                                                <small><span class="deliveredat_label_cls">Delivered At </span><span
+                                                        class="deliveredat_data_cls">YouTube</span></small>
+                                            </div>
+                                            <div class="dateofpublishing_div_cls">
+                                                <small> <span class="dateofpublishing_label_cls">Date of publishing
+                                                    </span><span class="dateofpublishing_data_cls">March 27,
+                                                        2021</span></small>
+                                            </div>
+                                            <small class="meta">
+                                                <span class="pr-1">Author </span>
+                                                <a href="user-profile.html" class="author">CA PRAMOD JAIN, </a>
+                                                <span> CA, CS, CMA, LL.B, </span>
+                                                <span> Delhi</span>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end media -->
+
+
+                        </div><!-- end tab-pane -->
+
+                        <div class="tab-pane fade" id="Notifications" role="tabpanel"
+                            aria-labelledby="Notifications-tab">
+                            <div class="filters  mb-2 heading_main_t">
+                                <div class="d-flex flex-wrap align-items-center justify-content-between ">
+                                    <h2 class="fs-20 fw-bold"> Notifications </h2>
+                                </div>
+
+                            </div><!-- end filters -->
+                            <div class="row mb-3">
+                                <div class="col-lg-8 col-md-8">
+                                    <small>(Kindly select categories from left panel to get category specific
+                                        result)</small>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="filter-option-box ">
+                                        <select class="select-container">
+                                            <option value="2021" selected="selected">2021 </option>
+                                            <option value="2019">2019</option>
+                                            <option value="2018">2018 </option>
+                                            <option value="2017">2017 </option>
+                                            <option value="2016">2016 </option>
+                                        </select>
+                                    </div><!-- end filter-option-box -->
+                                </div>
+                            </div>
+
+                            <div class="media media-card media--card align-items-center">
+                                <div class="media-body">
+                                    <h5><a href="question-details.html">Company Auditor Series 5 - Removal & Resignation
+                                            of Auditors Removal & Resignation of Auditors </a></h5>
+                                    <div class="tags mt-3">
+                                        <a href="#" class="tag-link">Income Tax</a>
+                                        <a href="#" class="tag-link">Goods and Services Tax (GST)</a>
+                                        <a href="#" class="tag-link">Corporate Matters/LLP</a>
+                                    </div>
+                                </div>
+                            </div><!-- end media -->
+
+                        </div><!-- end tab-pane -->
+
+
+
+                    </div><!-- end tab-content -->
+                </div><!-- end question-tabs -->
+            </div><!-- end col-lg-7 -->
             <div class="col-lg-3">
-        <div class="sidebar">
-        <div class="card card-item">
-            <div class="card-body">
-                <h3 class="fs-17 pb-3">Navigation</h3>
-                <div class="divider"><span></span></div>
-                <div class="sidebar-questions pt-3">
-                        <div class="media media-card media--card media--card-2">
-                            <div class="media-body">
-                                <h5><a href="customer/login.html"><i class="lar la-question-circle"></i> Create Question</a></h5>
+                <div class="sidebar">
+                    <div class="card card-item">
+                        <div class="card-body">
+                            <h3 class="fs-17 pb-3">Concept by</h3>
+                            <div class="divider"><span></span></div>
+                            <div class="consepted_by_main">
+                                <div class="image">
+                                    <img src="{% static 'images/rajat.jpg'%}" class="img-fluid" alt="">
+                                </div>
+                                <h6><b> CA Rajat Jain</b></h6>
                             </div>
-                        </div><!-- end media -->
-                        <div class="media media-card media--card media--card-2">
-                            <div class="media-body">
-                                <h5><a href="customer/login.html"><i class="lar la-list-alt"></i> Question List</a></h5>                                        
-                            </div>
-                        </div><!-- end media -->
-                        <div class="media media-card media--card media--card-2">
-                            <div class="media-body">
-                                <h5><a href="customer/login.html"><i class="las la-user-edit"></i> Edit Profile</a></h5>                                        
-                            </div>
-                        </div><!-- end media -->
-                    </div><!-- end sidebar-questions -->
-                </div>
-            </div><!-- end card -->
-            <div class="card card-item bg_writtenop p-0">
-                <div class="card-body p-0">
-                <a href="create/opinion.html"><h3 class="fs-17 p-0"><i class="las la-user-edit"></i> Have a written opinion</h3></a>
-                </div>
-            </div>
-            <div class="card card-item">
-                <div class="card-body">
-                    <h3 class="fs-17 pb-3">Concept by</h3>
-                    <div class="divider"><span></span></div>
-                    <div class="consepted_by_main">
-                        <div class="image">
-                            <img src="{% static 'frontend/qna/images/rajat.jpg'%}" class="img-fluid" alt="">
-                        </div> 
-                        <h6><b> CA Rajat Jain</b></h6>
+                        </div>
+                    </div><!-- end card -->
+
+                    
+
+                    <div class="card card-item">
+                        <div class="card-body">
+                            <h3 class="fs-17 pb-3">Navigation</h3>
+                            <div class="divider"><span></span></div>
+                            <div class="sidebar-questions pt-3">
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="{% url 'create-question' %}"><i class="lar la-question-circle"></i>
+                                                Create Question</a></h5>
+                                    </div>
+                                </div><!-- end media -->
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="{% url 'index' %}"><i class="lar la-list-alt"></i> Question
+                                                List</a></h5>
+                                    </div>
+                                </div><!-- end media -->
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="{% url 'edit-profile' %}"><i class="las la-user-edit"></i> Edit
+                                                Profile</a></h5>
+                                    </div>
+                                </div><!-- end media -->
+                            </div><!-- end sidebar-questions -->
+                        </div>
                     </div>
-                </div>
-            </div><!-- end card -->            
-        </div><!-- end sidebar -->
-    </div><!-- end col-lg-3 -->
+
+                </div><!-- end sidebar -->
+            </div><!-- end col-lg-3 -->
         </div><!-- end row -->
     </div><!-- end container -->
 </section><!-- end question-area -->
@@ -556,33 +713,36 @@
 <section class="get-started-area pt-80px pb-50px pattern-bg bg-gray">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-title">Expert Sahayog Q&A communities are different. <br> Here's how</h2>
+            <h2 class="section-title">Filling Suvidha Q&A communities are different. <br> Here's how</h2>
         </div>
         <div class="row pt-50px">
             <div class="col-lg-4 responsive-column-half">
                 <div class="card card-item hover-y text-center">
                     <div class="card-body">
-                        <img src="{% static 'frontend/qna/images/bubble.png'%}" alt="bubble">
+                        <img src="{% static 'images/bubble.png' %}" alt="bubble">
                         <h5 class="card-title pt-4 pb-2">Expert communities.</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
+                        <p class="card-text">This is just a simple text made for this unique and awesome template, you
+                            can easily edit it as you want.</p>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
             <div class="col-lg-4 responsive-column-half">
                 <div class="card card-item hover-y text-center">
                     <div class="card-body">
-                        <img src="{% static 'frontend/qna/images/vote.png'%}" alt="vote">
+                        <img src="{% static 'images/vote.png' %}" alt="vote">
                         <h5 class="card-title pt-4 pb-2">The right answer. Right on top.</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
+                        <p class="card-text">This is just a simple text made for this unique and awesome template, you
+                            can easily edit it as you want.</p>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
             <div class="col-lg-4 responsive-column-half">
                 <div class="card card-item hover-y text-center">
                     <div class="card-body">
-                        <img src="{% static 'frontend/qna/images/check.png'%}" alt="check">
+                        <img src="{% static 'images/check.png' %}" alt="check">
                         <h5 class="card-title pt-4 pb-2">Share knowledge. Earn trust.</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
+                        <p class="card-text">This is just a simple text made for this unique and awesome template, you
+                            can easily edit it as you want.</p>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
@@ -592,5 +752,4 @@
 <!-- ================================
          END CTA AREA
 ================================= -->
-
 {% endblock content %}

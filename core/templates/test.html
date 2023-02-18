@@ -1,0 +1,768 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from techydevs.com/demos/themes/html/disilab-demo/disilab/question-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Aug 2021 06:59:51 GMT -->
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="TechyDevs">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Disilab -  Social Questions and Answers HTML Template</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" sizes="16x16" href="images/favicon.png">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'ques/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'ques/css/line-awesome.css'%}">
+    <link rel="stylesheet" href="{% static 'ques/css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'ques/css/owl.theme.default.min.css'%}">
+    <link rel="stylesheet" href="{% static 'ques/css/jquery-te-1.4.0.css'%}">
+    <link rel="stylesheet" href="{% static 'ques/css/upvotejs.min.css'%}">
+    <link rel="stylesheet" href="{% static 'ques/css/selectize.css'%}">
+    <link rel="stylesheet" href="{% static 'ques/css/style.css'%}">
+    <!-- end inject -->
+</head>
+<body>
+
+<!-- start cssload-loader -->
+<div id="preloader">
+    <div class="loader">
+        <svg class="spinner" viewBox="0 0 50 50">
+            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+        </svg>
+    </div>
+</div>
+<!-- end cssload-loader -->
+
+<!--======================================
+        START HEADER AREA
+    ======================================-->
+<header class="header-area bg-white border-bottom border-bottom-gray">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-2">
+                <div class="logo-box">
+                    <a href="index.html" class="logo"><img src="images/logo-black.png" alt="logo"></a>
+                    <div class="user-action">
+                        <div class="search-menu-toggle icon-element icon-element-xs shadow-sm mr-1" data-toggle="tooltip" data-placement="top" title="Search">
+                            <i class="la la-search"></i>
+                        </div>
+                        <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm" data-toggle="tooltip" data-placement="top" title="Main menu">
+                            <i class="la la-bars"></i>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end col-lg-2 -->
+            <div class="col-lg-10">
+                <div class="menu-wrapper border-left border-left-gray pl-4 justify-content-end">
+                    <nav class="menu-bar mr-auto">
+                        <ul>
+                            <li>
+                                <a href="#">Home <i class="la la-angle-down fs-11"></i></a>
+                                <ul class="dropdown-menu-item">
+                                    <li><a href="index.html">Home - landing</a></li>
+                                    <li><a href="home-2.html">Home - main</a></li>
+                                    <li><a href="home-3.html">Home - layout 2 <span class="badge bg-warning text-white">New</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="is-mega-menu">
+                                <a href="#">pages <i class="la la-angle-down fs-11"></i></a>
+                                <div class="dropdown-menu-item mega-menu">
+                                    <ul class="row">
+                                        <li class="col-lg-3">
+                                            <a href="user-profile.html">user profile</a>
+                                            <a href="notifications.html">Notifications</a>
+                                            <a href="referrals.html">Referrals</a>
+                                            <a href="setting.html">settings</a>
+                                            <a href="ask-question.html">ask question</a>
+                                            <a href="question-details.html">question details</a>
+                                            <a href="about.html">about</a>
+                                            <a href="revisions.html">revisions</a>
+                                            <a href="category.html">category</a>
+                                            <a href="companies.html">companies</a>
+                                        </li>
+                                        <li class="col-lg-3">
+                                            <a href="company-details.html">company details</a>
+                                            <a href="careers.html">careers</a>
+                                            <a href="career-details.html">career details</a>
+                                            <a href="contact.html">contact</a>
+                                            <a href="faq.html">FAQs</a>
+                                            <a href="pricing-table.html">pricing tables</a>
+                                            <a href="error.html">page 404</a>
+                                            <a href="terms-and-conditions.html">Terms & conditions</a>
+                                            <a href="privacy-policy.html">privacy policy</a>
+                                            <a href="cart.html">cart</a>
+                                        </li>
+                                        <li class="col-lg-3">
+                                            <a href="talent.html">talent</a>
+                                            <a href="advertising.html">advertising</a>
+                                            <a href="free-demo.html">free demo</a>
+                                            <a href="checkout.html">checkout</a>
+                                            <a href="wishlist.html">wishlist</a>
+                                            <a href="login.html">login</a>
+                                            <a href="login-2.html">login 2</a>
+                                            <a href="signup.html">sign up</a>
+                                            <a href="signup-2.html">sign up 2</a>
+                                            <a href="recover-password.html">recover password</a>
+                                        </li>
+                                        <li class="col-lg-3">
+                                            <a href="questions-layout-2.html">questions layout 2 <span class="badge bg-warning text-white">New</span></a>
+                                            <a href="questions-full-width.html">questions full-width <span class="badge bg-warning text-white">New</span></a>
+                                            <a href="questions-left-sidebar.html">questions left sidebar <span class="badge bg-warning text-white">New</span></a>
+                                            <a href="questions-right-sidebar.html">questions right sidebar <span class="badge bg-warning text-white">New</span></a>
+                                            <a href="user-list.html">user list <span class="badge bg-warning text-white">New</span></a>
+                                            <a href="category-list.html">category list <span class="badge bg-warning text-white">New</span></a>
+                                            <a href="tags-list.html">tags list <span class="badge bg-warning text-white">New</span></a>
+                                            <a href="add-post.html">add post <span class="badge bg-warning text-white">New</span></a>
+                                            <a href="badges-list.html">Badges list <span class="badge bg-warning text-white">New</span></a>
+                                            <a href="job-list.html">job list <span class="badge bg-warning text-white">New</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">blog <i class="la la-angle-down fs-11"></i></a>
+                                <ul class="dropdown-menu-item">
+                                    <li><a href="blog-grid-no-sidebar.html">grid no sidebar</a></li>
+                                    <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
+                                    <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
+                                    <li><a href="blog-single.html">blog detail</a></li>
+                                </ul>
+                            </li>
+                        </ul><!-- end ul -->
+                    </nav><!-- end main-menu -->
+                    <form method="post" class="mr-4">
+                        <div class="form-group mb-0">
+                            <input class="form-control form--control form--control-bg-gray" type="text" name="search" placeholder="Type your search words...">
+                            <button class="form-btn" type="button"><i class="la la-search"></i></button>
+                        </div>
+                    </form>
+                    <div class="nav-right-button">
+                        <a href="login.html" class="btn theme-btn theme-btn-outline mr-2"><i class="la la-sign-in mr-1"></i> Login</a>
+                        <a href="signup.html" class="btn theme-btn"><i class="la la-user mr-1"></i> Sign up</a>
+                    </div><!-- end nav-right-button -->
+                </div><!-- end menu-wrapper -->
+            </div><!-- end col-lg-10 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+    <div class="off-canvas-menu custom-scrollbar-styled">
+        <div class="off-canvas-menu-close icon-element icon-element-sm shadow-sm" data-toggle="tooltip" data-placement="left" title="Close menu">
+            <i class="la la-times"></i>
+        </div><!-- end off-canvas-menu-close -->
+        <ul class="generic-list-item off-canvas-menu-list pt-90px">
+            <li>
+                <a href="#">Home</a>
+                <ul class="sub-menu">
+                    <li><a href="index.html">Home - landing</a></li>
+                    <li><a href="home-2.html">Home - main</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Pages</a>
+                <ul class="sub-menu">
+                    <li><a href="user-profile.html">user profile</a></li>
+                    <li><a href="notifications.html">Notifications</a></li>
+                    <li><a href="referrals.html">Referrals</a></li>
+                    <li><a href="setting.html">settings</a></li>
+                    <li><a href="ask-question.html">ask question</a></li>
+                    <li><a href="question-details.html">question details</a></li>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="revisions.html">revisions</a></li>
+                    <li><a href="category.html">category</a></li>
+                    <li><a href="companies.html">companies</a></li>
+                    <li><a href="company-details.html">company details</a></li>
+                    <li><a href="careers.html">careers</a></li>
+                    <li><a href="career-details.html">career details</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="pricing-table.html">pricing tables</a></li>
+                    <li><a href="error.html">page 404</a></li>
+                    <li><a href="terms-and-conditions.html">Terms & conditions</a></li>
+                    <li><a href="privacy-policy.html">privacy policy</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">blog</a>
+                <ul class="sub-menu">
+                    <li><a href="blog-grid-no-sidebar.html">grid no sidebar</a></li>
+                    <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
+                    <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
+                    <li><a href="blog-single.html">blog detail</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="off-canvas-btn-box px-4 pt-5 text-center">
+            <a href="#" class="btn theme-btn theme-btn-sm theme-btn-outline" data-toggle="modal" data-target="#loginModal"><i class="la la-sign-in mr-1"></i> Login</a>
+            <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
+            <a href="#" class="btn theme-btn theme-btn-sm" data-toggle="modal" data-target="#signUpModal"><i class="la la-plus mr-1"></i> Sign up</a>
+        </div>
+    </div><!-- end off-canvas-menu -->
+    <div class="mobile-search-form">
+        <div class="d-flex align-items-center">
+            <form method="post" class="flex-grow-1 mr-3">
+                <div class="form-group mb-0">
+                    <input class="form-control form--control pl-40px" type="text" name="search" placeholder="Type your search words...">
+                    <span class="la la-search input-icon"></span>
+                </div>
+            </form>
+            <div class="search-bar-close icon-element icon-element-sm shadow-sm">
+                <i class="la la-times"></i>
+            </div><!-- end off-canvas-menu-close -->
+        </div>
+    </div><!-- end mobile-search-form -->
+    <div class="body-overlay"></div>
+</header><!-- end header-area -->
+<!--======================================
+        END HEADER AREA
+======================================-->
+
+<!--======================================
+        START HERO AREA
+======================================-->
+<section class="hero-area bg-white shadow-sm overflow-hidden pt-40px pb-40px">
+    <span class="stroke-shape stroke-shape-1"></span>
+    <span class="stroke-shape stroke-shape-2"></span>
+    <span class="stroke-shape stroke-shape-3"></span>
+    <span class="stroke-shape stroke-shape-4"></span>
+    <span class="stroke-shape stroke-shape-5"></span>
+    <span class="stroke-shape stroke-shape-6"></span>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9">
+                <div class="hero-content">
+                    <h2 class="section-title pb-2 fs-24 lh-34">Find the best answer to your technical question, <br>
+                        help others answer theirs
+                    </h2>
+                    
+                    <ul class="generic-list-item pt-3">
+                        <li><span class="icon-element icon-element-xs shadow-sm d-inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#6c727c"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg></span> Anybody can ask a question</li>
+                        <li><span class="icon-element icon-element-xs shadow-sm d-inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#6c727c"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></span> Anybody can answer</li>
+                        <li><span class="icon-element icon-element-xs shadow-sm d-inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 320 512" width="20px"><path fill="#6c727c" d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z"></path></svg></span> The best answers are voted up and rise to the top</li>
+                    </ul>
+                </div><!-- end hero-content -->
+            </div><!-- end col-lg-9 -->
+            <div class="col-lg-3">
+                <div class="hero-btn-box text-right py-3">
+                    <a href="ask-question.html" class="btn theme-btn">Ask a Question</a>
+                </div>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+<!--======================================
+        END HERO AREA
+======================================-->
+
+<!-- ================================
+         START QUESTION AREA
+================================= -->
+<section class="question-area pt-40px pb-40px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="question-main-bar mb-50px">
+                    <div class="question-highlight">
+                        <div class="media media-card shadow-none rounded-0 mb-0 bg-transparent p-0">
+                            <div class="media-body">
+                                <h5 class="fs-20"><a href="question-details.html">Unable to get data attribute from button element via Jquery</a></h5>
+                                <div class="meta d-flex flex-wrap align-items-center fs-13 lh-20 py-1">
+                                    <div class="pr-3">
+                                        <span>Asked</span>
+                                        <span class="text-black">1 hour ago</span>
+                                    </div>
+                                    <div class="pr-3">
+                                        <span class="pr-1">Active</span>
+                                        <a href="#" class="text-black">19 days ago</a>
+                                    </div>
+                                    <div class="pr-3">
+                                        <span class="pr-1">Viewed</span>
+                                        <span class="text-black">89 times</span>
+                                    </div>
+                                </div>
+                                <div class="tags">
+                                    <a href="#" class="tag-link">javascript</a>
+                                    <a href="#" class="tag-link">jquery</a>
+                                    <a href="#" class="tag-link">attribute</a>
+                                </div>
+                            </div>
+                        </div><!-- end media -->
+                    </div><!-- end question-highlight -->
+ 
+                    <div class="answer-wrap d-flex">
+                        <div class="votes votes-styled w-auto">
+                            <div id="vote2" class="upvotejs">
+                                <a class="upvote upvote-on" data-toggle="tooltip" data-placement="right" title="This question is useful"></a>
+                                <span class="count">2</span>
+                                <a class="downvote" data-toggle="tooltip" data-placement="right" title="This question is not useful"></a>
+                                <a class="star check star-on" data-toggle="tooltip" data-placement="right" title="The question owner accepted this answer"></a>
+                            </div>
+                        </div><!-- end votes -->
+                        <div class="answer-body-wrap flex-grow-1">
+                            <div class="answer-body">
+                                <h5><b>Lorem ipsum dolor sit, amet consectetur adipisicing elit.  </b></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti molestiae illum ad voluptates aliquam, vel quia porro laboriosam iusto excepturi consequatur voluptatum ea consequuntur culpa, cum et provident cupiditate tempore? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa voluptatem deserunt, nemo iusto quam assumenda architecto maxime eaque, quisquam ipsum tenetur. Quam, quas? Ad labore iure nemo perferendis veniam ea!</p>
+                                
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, nulla cum! Quos odio dolore dignissimos nemo inventore neque quibusdam obcaecati ratione. Hic eum obcaecati facilis nisi quasi, numquam tenetur maiores?</p>
+                            </div><!-- end answer-body -->
+
+
+                            <div class="question-post-user-action">
+                                <div class="post-menu">
+                                    <div class="btn-group">
+                                        <button class="btn dropdown-toggle after-none" type="button" id="shareDropdownMenuTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Share</button>
+                                        <div class="dropdown-menu dropdown--menu dropdown--menu-2 mt-2" aria-labelledby="shareDropdownMenuTwo">
+                                            <div class="py-3 px-4">
+                                                <h4 class="fs-15 pb-2">Share a link to this question</h4>
+                                                <form action="#" class="copy-to-clipboard">
+                                                    <span class="text-success-message">Link Copied!</span>
+                                                    <input type="text" class="form-control form--control form-control-sm copy-input" value="https://disilab.com/q/66552850/15319675">
+                                                    <div class="btn-box pt-2 d-flex align-items-center justify-content-between">
+                                                        <a href="#" class="btn-text copy-btn">Copy link</a>
+                                                        <ul class="social-icons social-icons-sm">
+                                                            <li><a href="#" class="bg-8 text-white shadow-none" title="Share link to this question on Facebook"><i class="la la-facebook"></i></a></li>
+                                                            <li><a href="#" class="bg-9 text-white shadow-none" title="Share link to this question on Twitter"><i class="la la-twitter"></i></a></li>
+                                                            <li><a href="#" class="bg-dark text-white shadow-none" title="Share link to this question on DEV"><i class="lab la-dev"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div><!-- btn-group -->
+                                    <a href="#" class="btn">Edit</a>
+                                    <button class="btn">Follow</button>
+                                </div><!-- end post-menu -->
+                                <div class="media media-card user-media align-items-center">
+                                    <a href="user-profile.html" class="media-img d-block">
+                                        <img src="images/img4.jpg" alt="avatar">
+                                    </a>
+                                    <div class="media-body d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <h5 class="pb-1"><a href="user-profile.html">Majed Badawi</a></h5>
+                                            <div class="stats fs-12 d-flex align-items-center lh-18">
+                                                <span class="text-black pr-2">15.5k</span>
+                                                <span class="pr-2 d-inline-flex align-items-center"><span class="ball gold"></span>3</span>
+                                                <span class="pr-2 d-inline-flex align-items-center"><span class="ball silver"></span>10</span>
+                                                <span class="pr-2 d-inline-flex align-items-center"><span class="ball"></span>26</span>
+                                            </div>
+                                        </div>
+                                        <small class="meta d-block text-right">
+                                            <span class="text-black d-block lh-18">answered</span>
+                                            <span class="d-block lh-18 fs-12">8 hours ago</span>
+                                        </small>
+                                    </div>
+                                </div><!-- end media -->
+                                <div class="media media-card user-media align-items-center">
+                                    <div class="media-body d-flex align-items-center justify-content-end">
+                                        <a href="revisions.html" class="meta d-block text-right fs-13 text-color">
+                                            <span class="d-block lh-18">edited</span>
+                                            <span class="d-block lh-18 fs-12">8 hours ago</span>
+                                        </a>
+                                    </div>
+                                </div><!-- end media -->
+                            </div><!-- end question-post-user-action -->
+                            <div class="comments-wrap">
+                                <ul class="comments-list">
+                                    <li>
+                                        <div class="comment-actions">
+                                            <span class="comment-score">1</span>
+                                        </div>
+                                        <div class="comment-body">
+                                            <span class="comment-copy">Ah excellent! Thank you!</span>
+                                            <span class="comment-separated">-</span>
+                                            <a href="user-profile.html" class="comment-user owner" title="224,110 reputation">Arden Smith</a>
+                                            <span class="comment-separated">-</span>
+                                            <a href="#" class="comment-date">8 hours ago</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="comment-form">
+                                    <div class="comment-link-wrap text-center">
+                                        <a class="collapse-btn comment-link" data-toggle="collapse" href="#addCommentCollapseTwo" role="button" aria-expanded="false" aria-controls="addCommentCollapseTwo" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">Add a comment</a>
+                                    </div>
+                                    <div class="collapse border-top border-top-gray mt-2 pt-3" id="addCommentCollapseTwo">
+                                        <form method="post" class="row pb-3">
+                                            <div class="col-lg-12">
+                                                <h4 class="fs-16 pb-2">Leave a Comment</h4>
+                                                <div class="divider mb-2"><span></span></div>
+                                            </div><!-- end col-lg-12 -->
+                                            <div class="col-lg-6">
+                                                <div class="input-box">
+                                                    <label class="fs-13 text-black lh-20">Name</label>
+                                                    <div class="form-group">
+                                                        <input class="form-control form--control form-control-sm fs-13" type="text" name="text" placeholder="Your name">
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-6 -->
+                                            <div class="col-lg-6">
+                                                <div class="input-box">
+                                                    <label class="fs-13 text-black lh-20">Email (Address never made public)</label>
+                                                    <div class="form-group">
+                                                        <input class="form-control form--control form-control-sm fs-13" type="text" name="text" placeholder="Your email">
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-6 -->
+                                            <div class="col-lg-12">
+                                                <div class="input-box">
+                                                    <label class="fs-13 text-black lh-20">Website</label>
+                                                    <div class="form-group">
+                                                        <input class="form-control form--control form-control-sm fs-13" type="text" name="text" placeholder="Website link">
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-12 -->
+                                            <div class="col-lg-12">
+                                                <div class="input-box">
+                                                    <label class="fs-13 text-black lh-20">Message</label>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control form--control form-control-sm fs-13" name="message" rows="5" placeholder="Your comment here..."></textarea>
+                                                        <div class="d-flex flex-wrap align-items-center pt-2">
+                                                            <div class="badge bg-gray border border-gray mr-3 fw-regular fs-13">[named hyperlinks] (https://example.com)</div>
+                                                            <div class="mr-3 fw-bold fs-13">**bold**</div>
+                                                            <div class="mr-3 font-italic fs-13">_italic_</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-12 -->
+                                            <div class="col-lg-12">
+                                                <div class="input-box d-flex flex-wrap align-items-center justify-content-between">
+                                                    <div>
+                                                        <div class="custom-control custom-checkbox fs-13">
+                                                            <input type="checkbox" class="custom-control-input" id="getNewCommentsTwo">
+                                                            <label class="custom-control-label custom--control-label" for="getNewCommentsTwo">Notify me of new comments vai email.</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox fs-13">
+                                                            <input type="checkbox" class="custom-control-input" id="getNewPostsTwo">
+                                                            <label class="custom-control-label custom--control-label" for="getNewPostsTwo">Notify me of new posts vai email.</label>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn theme-btn theme-btn-sm theme-btn-outline theme-btn-outline-gray" type="submit">Post Comment</button>
+                                                </div>
+                                            </div><!-- end col-lg-12 -->
+                                        </form>
+                                    </div><!-- end collapse -->
+                                </div>
+                            </div><!-- end comments-wrap -->
+                        </div><!-- end answer-body-wrap -->
+                    </div><!-- end answer-wrap -->
+                    <div class="subheader">
+                        <div class="subheader-title">
+                            <h3 class="fs-16">Your Answer</h3>
+                        </div><!-- end subheader-title -->
+                    </div><!-- end subheader -->
+                    <div class="post-form">
+                        <form method="post" class="pt-3">
+                            <div class="input-box">
+                                <label class="fs-14 text-black lh-20 fw-medium">Body</label>
+                                <div class="form-group">
+                                    <textarea class="form-control form--control form-control-sm fs-13 user-text-editor" name="message" rows="6" placeholder="Your answer here...">Your answer here...</textarea>
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label class="fs-14 text-black fw-medium">Image</label>
+                                <div class="form-group">
+                                    <div class="file-upload-wrap file-upload-layout-2">
+                                        <input type="file" name="files[]" class="file-upload-input" multiple>
+                                        <span class="file-upload-text d-flex align-items-center justify-content-center"><i class="la la-cloud-upload mr-2 fs-24"></i>Drop files here or click to upload.</span>
+                                    </div>
+                                </div>
+                            </div><!-- end input-box -->
+                            <button class="btn theme-btn theme-btn-sm" type="submit">Post Your Answer</button>
+                        </form>
+                    </div>
+                </div><!-- end question-main-bar -->
+            </div><!-- end col-lg-9 -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card card-item">
+                        <div class="card-body">
+                            <h3 class="fs-17 pb-3">Number Achievement</h3>
+                            <div class="divider"><span></span></div>
+                            <div class="row no-gutters text-center">
+                                <div class="col-lg-6 responsive-column-half">
+                                    <div class="icon-box pt-3">
+                                        <span class="fs-20 fw-bold text-color">980k</span>
+                                        <p class="fs-14">Questions</p>
+                                    </div><!-- end icon-box -->
+                                </div><!-- end col-lg-6 -->
+                                <div class="col-lg-6 responsive-column-half">
+                                    <div class="icon-box pt-3">
+                                        <span class="fs-20 fw-bold text-color-2">610k</span>
+                                        <p class="fs-14">Answers</p>
+                                    </div><!-- end icon-box -->
+                                </div><!-- end col-lg-6 -->
+                                <div class="col-lg-6 responsive-column-half">
+                                    <div class="icon-box pt-3">
+                                        <span class="fs-20 fw-bold text-color-3">650k</span>
+                                        <p class="fs-14">Answer accepted</p>
+                                    </div><!-- end icon-box -->
+                                </div><!-- end col-lg-6 -->
+                                <div class="col-lg-6 responsive-column-half">
+                                    <div class="icon-box pt-3">
+                                        <span class="fs-20 fw-bold text-color-4">320k</span>
+                                        <p class="fs-14">Users</p>
+                                    </div><!-- end icon-box -->
+                                </div><!-- end col-lg-6 -->
+                                <div class="col-lg-12 pt-3">
+                                    <p class="fs-14">To get answer of question <a href="signup.html" class="text-color hover-underline">Join<i class="la la-arrow-right ml-1"></i></a></p>
+                                </div>
+                            </div><!-- end row -->
+                        </div>
+                    </div><!-- end card -->
+                    <div class="card card-item">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center pb-3">
+                                <svg class="mr-2" width="18" height="18" viewBox="0 0 18 18" fill="#6c727c"><path d="M1 6l8 5 8-5V4L9 9 1 4c0-1.1.9-2 2-2h12c1.09 0 2 .91 2 2v10c0 1.09-.91 2-2 2H3c-1.09 0-2-.91-2-2V6z"></path></svg>
+                                <h3 class="fs-17">Love this site?</h3>
+                            </div>
+                            <div class="divider"><span></span></div>
+                            <p class="fs-14 lh-20 py-3">Get the <span class="text-dark fw-medium">weekly newsletter!</span> In it, you'll get:</p>
+                            <ul class="generic-list-item generic-list-item-bullet fs-14 pb-3">
+                                <li class="lh-20">The week's top questions and answers</li>
+                                <li class="lh-20">Important community announcements</li>
+                                <li class="lh-20">Questions that need answers</li>
+                            </ul>
+                            <button class="btn theme-btn theme-btn-gray w-100">Sign up for the digest</button>
+                            <p class="fs-14 pt-1 text-center">See an example newsletter</p>
+                        </div>
+                    </div><!-- end card -->
+                    <div class="card card-item">
+                        <div class="card-body">
+                            <h3 class="fs-17 pb-3">Related Questions</h3>
+                            <div class="divider"><span></span></div>
+                            <div class="sidebar-questions pt-3">
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="question-details.html">How to select the dom element with event.target</a></h5>
+                                        <small class="meta">
+                                            <span class="pr-1">2 mins ago</span>
+                                            <span class="pr-1">. by</span>
+                                            <a href="#" class="author">Sudhir Kumbhare</a>
+                                        </small>
+                                    </div>
+                                </div><!-- end media -->
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="question-details.html">How can you cut an onion without crying?</a></h5>
+                                        <small class="meta">
+                                            <span class="pr-1">48 mins ago</span>
+                                            <span class="pr-1">. by</span>
+                                            <a href="#" class="author">wimax</a>
+                                        </small>
+                                    </div>
+                                </div><!-- end media -->
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="question-details.html">How to change the behavior of dropdown buttons in HTML</a></h5>
+                                        <small class="meta">
+                                            <span class="pr-1">1 hour ago</span>
+                                            <span class="pr-1">. by</span>
+                                            <a href="#" class="author">Antonin gavrel</a>
+                                        </small>
+                                    </div>
+                                </div><!-- end media -->
+                            </div><!-- end sidebar-questions -->
+                        </div>
+                    </div><!-- end card -->
+                    <div class="card card-item">
+                        <div class="card-body">
+                            <h3 class="fs-17 pb-3">Trending Tags</h3>
+                            <div class="divider"><span></span></div>
+                            <div class="tags pt-4">
+                                <div class="tag-item">
+                                    <a href="#" class="tag-link tag-link-md">analytics</a>
+                                    <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                </div><!-- end tag-item -->
+                                <div class="tag-item">
+                                    <a href="#" class="tag-link tag-link-md">computer</a>
+                                    <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                </div><!-- end tag-item -->
+                                <div class="tag-item">
+                                    <a href="#" class="tag-link tag-link-md">python</a>
+                                    <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                </div><!-- end tag-item -->
+                                <div class="tag-item">
+                                    <a href="#" class="tag-link tag-link-md">javascript</a>
+                                    <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                </div><!-- end tag-item -->
+                                <div class="tag-item">
+                                    <a href="#" class="tag-link tag-link-md">c#</a>
+                                    <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                </div><!-- end tag-item -->
+                                <div class="collapse" id="showMoreTags">
+                                    <div class="tag-item">
+                                        <a href="#" class="tag-link tag-link-md">java</a>
+                                        <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                    </div><!-- end tag-item -->
+                                    <div class="tag-item">
+                                        <a href="#" class="tag-link tag-link-md">swift</a>
+                                        <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                    </div><!-- end tag-item -->
+                                    <div class="tag-item">
+                                        <a href="#" class="tag-link tag-link-md">html</a>
+                                        <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                    </div><!-- end tag-item -->
+                                    <div class="tag-item">
+                                        <a href="#" class="tag-link tag-link-md">angular</a>
+                                        <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                    </div><!-- end tag-item -->
+                                    <div class="tag-item">
+                                        <a href="#" class="tag-link tag-link-md">flutter</a>
+                                        <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                    </div><!-- end tag-item -->
+                                    <div class="tag-item">
+                                        <a href="#" class="tag-link tag-link-md">machine-language</a>
+                                        <span class="item-multiplier fs-13">
+                                    <span>×</span>
+                                    <span>32924</span>
+                                </span>
+                                    </div><!-- end tag-item -->
+                                </div><!-- end collapse -->
+                                <a class="collapse-btn fs-13" data-toggle="collapse" href="#showMoreTags" role="button" aria-expanded="false" aria-controls="showMoreTags">
+                                    <span class="collapse-btn-hide">Show more<i class="la la-angle-down ml-1 fs-11"></i></span>
+                                    <span class="collapse-btn-show">Show less<i class="la la-angle-up ml-1 fs-11"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div><!-- end card -->
+                    <div class="ad-card">
+                        <h4 class="text-gray text-uppercase fs-13 pb-3 text-center">Advertisements</h4>
+                        <div class="ad-banner mb-4 mx-auto">
+                            <span class="ad-text">290x500</span>
+                        </div>
+                    </div><!-- end ad-card -->
+                </div><!-- end sidebar -->
+            </div><!-- end col-lg-3 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end question-area -->
+<!-- ================================
+         END QUESTION AREA
+================================= -->
+
+<!-- ================================
+         END FOOTER AREA
+================================= -->
+<section class="footer-area pt-80px bg-dark position-relative">
+    <span class="vertical-bar-shape vertical-bar-shape-1"></span>
+    <span class="vertical-bar-shape vertical-bar-shape-2"></span>
+    <span class="vertical-bar-shape vertical-bar-shape-3"></span>
+    <span class="vertical-bar-shape vertical-bar-shape-4"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 responsive-column-half">
+                <div class="footer-item">
+                    <h3 class="fs-18 fw-bold pb-2 text-white">Company</h3>
+                    <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Advertising</a></li>
+                    </ul>
+                </div><!-- end footer-item -->
+            </div><!-- end col-lg-3 -->
+            <div class="col-lg-3 responsive-column-half">
+                <div class="footer-item">
+                    <h3 class="fs-18 fw-bold pb-2 text-white">Legal Stuff</h3>
+                    <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div><!-- end footer-item -->
+            </div><!-- end col-lg-3 -->
+            <div class="col-lg-3 responsive-column-half">
+                <div class="footer-item">
+                    <h3 class="fs-18 fw-bold pb-2 text-white">Help</h3>
+                    <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
+                        <li><a href="#">Knowledge Base</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div><!-- end footer-item -->
+            </div><!-- end col-lg-3 -->
+            <div class="col-lg-3 responsive-column-half">
+                <div class="footer-item">
+                    <h3 class="fs-18 fw-bold pb-2 text-white">Connect with us</h3>
+                    <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
+                        <li><a href="#"><i class="la la-facebook mr-1"></i> Facebook</a></li>
+                        <li><a href="#"><i class="la la-twitter mr-1"></i> Twitter</a></li>
+                        <li><a href="#"><i class="la la-linkedin mr-1"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="la la-instagram mr-1"></i> Instagram</a></li>
+                    </ul>
+                </div><!-- end footer-item -->
+            </div><!-- end col-lg-3 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+    <hr class="border-top-gray my-5">
+    <div class="container">
+        <div class="row align-items-center pb-4 copyright-wrap">
+            <div class="col-lg-6">
+                <a href="index.html" class="d-inline-block">
+                    <img src="images/logo-white.png" alt="footer logo" class="footer-logo">
+                </a>
+            </div><!-- end col-lg-6 -->
+            <div class="col-lg-6">
+                <p class="copyright-desc text-right fs-14">Copyright &copy; 2021 <a href="https://techydevs.com/">TechyDevs</a> Inc.</p>
+            </div><!-- end col-lg-6 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end footer-area -->
+<!-- ================================
+          END FOOTER AREA
+================================= -->
+
+<!-- start back to top -->
+<div id="back-to-top" data-toggle="tooltip" data-placement="top" title="Return to top">
+    <i class="la la-arrow-up"></i>
+</div>
+<!-- end back to top -->
+
+<!-- template js files -->
+<script src="{% static 'ques/js/jquery-3.4.1.min.js'%}"></script>
+<script src="{% static 'ques/js/bootstrap.bundle.min.js'%}"></script>
+<script src="{% static 'ques/js/owl.carousel.min.js'%}"></script>
+<script src="{% static 'ques/js/jquery-te-1.4.0.min.js'%}"></script>
+<script src="{% static 'ques/js/upvote.vanilla.js'%}"></script>
+<script src="{% static 'ques/js/upvote-script.js'%}"></script>
+<script src="{% static 'ques/js/selectize.min.js'%}"></script>
+<script src="{% static 'ques/js/jquery.multi-file.min.js'%}"></script>
+<script src="{% static 'ques/js/main.js'%}"></script>
+</body>
+
+<!-- Mirrored from techydevs.com/demos/themes/html/disilab-demo/disilab/question-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Aug 2021 06:59:54 GMT -->
+</html>

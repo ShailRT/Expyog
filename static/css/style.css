@@ -5086,7 +5086,7 @@ ol.list li:last-child {
 
 .pagination .page-item.active .page-link {
   background: transparent;
-  color: #fff;
+  color: #2d86eb;
   border-color: #2d86eb;
 }
 
@@ -6112,3 +6112,30 @@ ol.list li:last-child {
   
 }
 /* responsivecss */
+
+/* custom css */
+
+.blog-post-details ul{
+  list-style-type: disc;
+  margin-bottom: 25px;
+}
+
+.multiselect-container{
+  padding-left: 0.8em ;
+}
+
+.multiselect{
+  overflow: auto;
+}
+
+.custom-td{
+  padding-bottom: 200px;
+}
+
+.dropdown-toggle{
+  width: 32.15rem;
+}
+
+.multiselect-container{
+  width: 32.15rem;
+}

@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = '/?category=&page=1'
+LOGOUT_REDIRECT_URL = '/account/login'
 
 # Application definition
 
@@ -40,8 +42,10 @@ INSTALLED_APPS = [
 
     'core',
     'cms',
+    'discuss',
 
-    'ckeditor'
+    'ckeditor',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +135,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

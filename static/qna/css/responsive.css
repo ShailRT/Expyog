@@ -1,0 +1,61 @@
+
+@media only screen and (min-width:320px) and (max-width:767px) {
+    .xs_hideSHow{
+        display: none;
+    }
+    .d-block.d-lg-none.all_catogry_btn {
+        padding: 4px 20px;
+        margin: 0 0 20px 0;
+        background: #2d86eb;
+        color: #fff;
+        border: 1px solid #2d86eb;
+        border-radius: 5px;
+    }
+ .xs_hideSHow {
+        position: fixed;
+        top: 0;
+        z-index: 99999;
+        width: 60%;
+        box-shadow: 0 0 21px;
+        overflow-X: scroll;
+        height: 100%;
+        left: 0;
+    }
+}
+
+
+
+@media only screen and (min-width:768px) and (max-width:990px) {
+    .xs_hideSHow{
+        display: none;
+    }
+  .all_catogry_btn {
+        padding: 4px 20px;
+        margin: 0 0 20px 0;
+        background: #2d86eb;
+        color: #fff;
+        border: 1px solid #2d86eb;
+        border-radius: 5px;
+    }
+     .xs_hideSHow {
+        position: fixed;
+        top: 0;
+        z-index: 99999;
+        width: 60%;
+        box-shadow: 0 0 21px;
+        overflow-X: scroll;
+        height: 100%;
+        left: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
