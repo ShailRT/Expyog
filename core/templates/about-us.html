@@ -1,6 +1,7 @@
 ﻿{% extends 'base.html'%}
 {% load static %}
 
+
 {% block content %}
     <!--=================================
     Inner Header -->
@@ -432,3 +433,8 @@
     footer-->
  
 {% endblock content %}
+
+{% block script %}
+<script src="{% static 'frontend/js/jquery-3.4.1.min.js'%}"></script>
+<script src="{% static 'frontend/js/popper/popper.min.js'%}"></script>
+{% endblock script %}
